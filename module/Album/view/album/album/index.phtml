@@ -24,6 +24,7 @@
                 <td><?= $this->escapeHtml($album->title) ?></td>
                 <td><?= $this->escapeHtml($album->artist) ?></td>
                 <td>
+                    <a class="btn btn-info" href="<?= $this->url('album', ['action' => 'show', 'id' => $album->id]) ?>" role="button"> Show </a>
                     <a class="btn btn-warning" href="<?= $this->url('album', ['action' => 'edit', 'id' => $album->id]) ?>" role="button"> Edit </a>
                     <a class="btn btn-danger" href="<?= $this->url('album', ['action' => 'delete', 'id' => $album->id]) ?>" role="button"> Delete </a>
                 </td>

@@ -1,0 +1,52 @@
+<?php
+    $title = 'Album info';
+    $this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+    //var_dump($album); die();
+    $album = $form->get('title');
+    $album->setAttribute('class', 'form-control-plaintext');
+    //$album->setAttribute('placeholder', 'Album title');
+
+    $artist = $form->get('artist');
+    $artist->setAttribute('class', 'form-control-plaintext');
+    //$artist->setAttribute('placeholder', 'Artist');
+
+    //$submit = $form->get('submit');
+    //$submit->setAttribute('class', 'btn btn-primary');
+
+    $form->setAttribute('action', $this->url('album', [
+        'action' => 'show',
+        'id'     => $id,
+    ]));
+    $form->prepare();
+
+    echo $this->form()->openTag($form);
+?>
+
+<!--Aqui começam os campos do formulário-->
+<div class="form-group">
+    <?= $this->formLabel($album) ?>
+    <?= $this->formElement($album) ?>
+    <?= $this->formElementErrors()->render($album, ['class' => 'help-block']) ?>
+    <br>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($artist) ?>
+    <?= $this->formElement($artist) ?>
+    <?= $this->formElementErrors()->render($artist, ['class' => 'help-block']) ?>
+    <br>
+</div>
+
+<?php
+    //echo $this->formSubmit($submit);
+    echo $this->formHidden($form->get('id'));
+    echo $this->form()->closeTag();
+?>
+
+<!--<a class="btn btn-warning" href="<?= $this->url('album', ['action' => 'edit', 'id' => $album->id]) ?>" role="button"> Edit </a>
+<a class="btn btn-danger" href="<?= $this->url('album', ['action' => 'delete', 'id' => $album->id]) ?>" role="button"> Delete </a>-->
+
+<a class="btn btn-success" href="<?= $this->url('home') ?>"> OK </a>
