@@ -1,5 +1,5 @@
 ### Framework instalado via Composer
-### Para abrir no navegador, rodar antes o comando "php composer.phar install"
+### Após baixar o projeto, antes de abrir no navegador, rodar o comando "php composer.phar install"
 
 # laminas-mvc-skeleton
 
